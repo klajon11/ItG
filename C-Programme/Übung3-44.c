@@ -41,10 +41,16 @@ Complex C_set(double re, double im)
     return r;
 }
 
-Complex f(Complex z, Complex c)
-{
-    return C_add(C_mul(z, z), c);
+Complex f(Complex z, Complex c, int k, int v) {
+    int l = z;
+    for (int i=0; i<(k-1), i++) {
+       l = C_mul(l,z)
+        }
+    int vc = C_mul(c,v)
+    return C_add(l, vc)   
 }
+
+
 int main(){
     FILE *fp = fopen("escapetime.dat", "w");
     if (!fp)
@@ -52,7 +58,16 @@ int main(){
         printf("Fehler beim Öffnen der Datei!\n");
         return 1;
     }
-
+    int k,v;
+    printf("Bitte geben sie für  f=x^k +c '1' ein und für  f=x^k -c '-1' ein");
+    scanf("%d", &v);
+    if (v!=1 && v!= -1)
+    {
+        printf("Falsche Eingabe bitte erneut versuchen.");
+        return 1;
+    }
+    printf("Bitte geben Sie den gewünschten Exponenten für f=x^k +c an");
+    scanf("%d", &k);
     for (int i = 0; i < imax; i++)
     {
         for (int j = 0; j < jmax; j++)
@@ -65,12 +80,13 @@ int main(){
             Complex z = C_set(0.0, 0.0);
 
             int n = 0;
-
+            
             while (C_abs(z) <= 2.0 && n < ITMAX)
             {
-                z = f(z, c);
+                z = f(z, c, k, v);
                 n++;
             }
+            
             fprintf(fp, "%f\n %f\n %d\n", c.re, c.im, n);
         }
     }
