@@ -16,7 +16,7 @@ Complex C_add(Complex x, Complex y)
 {
     Complex r;
     r.re = x.re + y.re;
-    r.im = x.im + y.re;
+    r.im = x.im + y.im;
     return r;
 }
 
@@ -52,7 +52,7 @@ int main(){
         printf("Fehler beim Öffnen der Datei!\n");
         return 1;
     }
-
+   
     for (int i = 0; i < imax; i++)
     {
         for (int j = 0; j < jmax; j++)
@@ -61,9 +61,9 @@ int main(){
             double re = -2.2 + 4.4 * ((double)i / (imax - 1));
             double im = -2.2 + 4.4 * ((double)j / (jmax - 1));
 
-            Complex c = C_set(re, im);
             Complex z = C_set(0.0, 0.0);
-
+            Complex c = C_set(re, im);
+            
             int n = 0;
 
             while (C_abs(z) <= 2.0 && n < ITMAX)
@@ -71,8 +71,9 @@ int main(){
                 z = f(z, c);
                 n++;
             }
-            fprintf(fp, "%f\n %f\n %d\n", c.re, c.im, n);
+            fprintf(fp, "%f %f %d\n", c.re, c.im, n);
         }
+
     }
 
     fclose(fp);
