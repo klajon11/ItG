@@ -58,14 +58,6 @@ int main(){
         printf("Fehler beim Öffnen der Datei!\n");
         return 1;
     }
-    int k,v;
-    printf("Bitte geben sie für  f=x^k +c '1' ein und für  f=x^k -c '-1' ein");
-    scanf("%d", &v);
-    if (v!=1 && v!= -1)
-    {
-        printf("Falsche Eingabe bitte erneut versuchen.");
-        return 1;
-    }
     printf("Bitte geben Sie den gewünschten Exponenten für f=x^k +c an");
     scanf("%d", &k);
     for (int i = 0; i < imax; i++)
@@ -81,7 +73,7 @@ int main(){
 
             int n = 0;
             
-            while (C_abs(z) <= 2.0 && n < ITMAX)
+            while ( n < ITMAX)
             {
                 z = f(z, c, k, v);
                 n++;
