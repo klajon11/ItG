@@ -22,7 +22,7 @@ int main()
     }
     for (i = 1; i < N; i++)
         if (primes[i] == 1)
-            printf("%8d\n", i);
+            printf("%d\n", i);
 
     return 0;
 }
