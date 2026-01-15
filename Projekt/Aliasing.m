@@ -74,43 +74,28 @@ interp38_sub  = interp2(X38, Y38, sampled38_sub, X, Y, 'linear');
 %% ----------
 figure
 
-subplot(3,3,1)
+subplot(2,3,1)
 imagesc(original)
 axis image off
 
-
-subplot(3,3,2)
-imagesc(sampled38)
-axis image off
-
-
-subplot(3,3,3)
+subplot(2,3,2)
 imagesc(interp38)
 axis image off
 
-
-subplot(3,3,5)
-imagesc(sampled13)
-axis image off
-
-
-subplot(3,3,6)
-imagesc(interp13)
-axis image off
-
-
-subplot(3,3,4)
-imagesc(interp38_AA)
-axis image off
-
-
-subplot(3,3,7)
+subplot(2,3,3)
 imagesc(smoothed)
 axis image off
 
-colormap gray
+subplot(2,3,4)
+imagesc(interp38_AA)
+axis image off
 
-subplot(3,3,8)
+subplot(2,3,5)
+imagesc(original_sub)
+axis image off
+
+subplot(2,3,6)
 imagesc(interp38_sub)
 axis image off
 
+colormap gray
