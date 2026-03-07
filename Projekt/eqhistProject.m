@@ -10,7 +10,6 @@ R = img(:,:,1);
 G = img(:,:,2);
 B = img(:,:,3);
 
-
 hsv = rgb2hsv(img);
 V = hsv(:,:,3); %betrachte Helligkeit
 
@@ -27,7 +26,6 @@ Beq01 = img_eq2(:,:,3);
 Req = im2uint8(Req01);
 Geq = im2uint8(Geq01);
 Beq = im2uint8(Beq01);
-
 
 figure
 subplot(2,3,1), imhist(R), title("Histogramm Rot")
